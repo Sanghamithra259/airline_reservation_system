@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARDPS - Flight Search Results</title>
+    <link rel="stylesheet" href="search-results.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">ARDPS</div>
+        <div class="search-summary">
+            <div class="route">
+                <span>MAA</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14m-4-4l4 4-4 4" />
+                </svg>
+                <span>DEL</span>
+            </div>
+            <div class="details">
+                <span>20 Mar 2026</span> • <span>1 Passenger</span> • <span>Economy</span>
+            </div>
+        </div>
+        <button class="edit-search-btn">Edit Search</button>
+    </header>
+
+    <main class="results-container">
+        <!-- Sidebar Filters -->
+        <aside class="filters-sidebar">
+            <div class="filter-header">
+                <h3>Filters</h3>
+                <button class="reset-btn">Reset</button>
+            </div>
+
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <div class="price-slider-container">
+                    <input type="range" min="8000" max="45000" value="45000" class="price-slider" id="priceRange">
+                    <div class="price-labels">
+                        <span>₹8K</span>
+                        <span id="priceValue">₹45K</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Cabin Class</h4>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" checked>
+                        <span>Economy</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox">
+                        <span>Business</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Departure Time</h4>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox">
+                        <span>Morning (06:00 - 12:00)</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox">
+                        <span>Afternoon (12:00 - 18:00)</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox">
+                        <span>Evening (18:00 - 00:00)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Stops</h4>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="stops" checked>
+                        <span>Any number of stops</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="stops">
+                        <span>Non-stop only</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="stops">
+                        <span>1 stop or fewer</span>
+                    </label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content area (Sort & Results) -->
+        <div class="main-content">
+            <div class="sort-bar">
+                <span class="results-count">Showing 3 flights</span>
+                <div class="sort-options">
+                    <span>Sort by:</span>
+                    <select class="sort-select">
+                        <option>Recommended</option>
+                        <option>Price (Low to High)</option>
+                        <option>Duration (Shortest)</option>
+                        <option>Departure (Earliest)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flight-list">
+                <!-- Flight Card 1 (Normal Price) -->
+                <div class="flight-card">
+                    <div class="flight-header">
+                        <span class="flight-number">ARD101</span>
+                        <span class="fare-class economy">Economy</span>
+                    </div>
+                    <div class="flight-details">
+                        <div class="time-block">
+                            <span class="time">09:00</span>
+                            <span class="airport">MAA</span>
+                        </div>
+                        <div class="duration-block">
+                            <span class="duration-time">2h 30m</span>
+                            <div class="line">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="plane-icon">
+                                    <path
+                                        d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 4-3 3-3-1-2 2 5 2 2 5 2-2-1-3 3-3 4 6z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="stops-info">Non-stop</span>
+                        </div>
+                        <div class="time-block">
+                            <span class="time">11:30</span>
+                            <span class="airport">DEL</span>
+                        </div>
+                        <div class="price-block">
+                            <div class="price-amount">₹12,000</div>
+                            <span class="seats-left">45 seats left</span>
+                            <button class="book-btn">Select</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flight Card 2 (High Demand - Glowing Tag) -->
+                <div class="flight-card high-demand">
+                    <div class="flight-header">
+                        <span class="flight-number">ARD105</span>
+                        <span class="fare-class economy">Economy</span>
+                        <span class="demand-badge pulsing">High Demand</span>
+                    </div>
+                    <div class="flight-details">
+                        <div class="time-block">
+                            <span class="time">14:15</span>
+                            <span class="airport">MAA</span>
+                        </div>
+                        <div class="duration-block">
+                            <span class="duration-time">2h 45m</span>
+                            <div class="line">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="plane-icon">
+                                    <path
+                                        d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 4-3 3-3-1-2 2 5 2 2 5 2-2-1-3 3-3 4 6z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="stops-info">Non-stop</span>
+                        </div>
+                        <div class="time-block">
+                            <span class="time">17:00</span>
+                            <span class="airport">DEL</span>
+                        </div>
+                        <div class="price-block">
+                            <div class="price-amount dynamic-surge">₹21,600</div>
+                            <span class="seats-left alert-text">Only 5 seats left</span>
+                            <button class="book-btn">Select</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flight Card 3 (Business Class) -->
+                <div class="flight-card">
+                    <div class="flight-header">
+                        <span class="flight-number">ARD101</span>
+                        <span class="fare-class business">Business</span>
+                    </div>
+                    <div class="flight-details">
+                        <div class="time-block">
+                            <span class="time">09:00</span>
+                            <span class="airport">MAA</span>
+                        </div>
+                        <div class="duration-block">
+                            <span class="duration-time">2h 30m</span>
+                            <div class="line">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="plane-icon">
+                                    <path
+                                        d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 4-3 3-3-1-2 2 5 2 2 5 2-2-1-3 3-3 4 6z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="stops-info">Non-stop</span>
+                        </div>
+                        <div class="time-block">
+                            <span class="time">11:30</span>
+                            <span class="airport">DEL</span>
+                        </div>
+                        <div class="price-block">
+                            <div class="price-amount">₹49,500</div>
+                            <span class="seats-left">9 seats left</span>
+                            <button class="book-btn logic-btn">Select</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="search-results.js"></script>
+</body>
+
+</html>

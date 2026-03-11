@@ -48,12 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Simulate dynamic price calculation search
             setTimeout(() => {
-                searchForm.style.opacity = '1';
-                searchForm.style.pointerEvents = 'auto';
-                loadingIndicator.classList.add('hidden');
-
-                alert(`Search completed! Optimal dynamic prices found for flights from ${fromInput.value} to ${toInput.value}.`);
-            }, 2500);
+                // Navigate to the next page instead of stopping
+                window.location.href = `search-results.html?from=${encodeURIComponent(fromInput.value.toUpperCase())}&to=${encodeURIComponent(toInput.value.toUpperCase())}&date=${encodeURIComponent(dateInput.value)}`;
+            }, 1200);
         });
     }
 });
