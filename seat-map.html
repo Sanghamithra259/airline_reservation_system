@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARDPS - Seat Selection</title>
+    <link rel="stylesheet" href="seat-map.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">ARDPS</div>
+        <div class="flight-info">
+            Flight ARD101 • MAA to DEL • Boeing 737-800
+        </div>
+    </header>
+
+    <main class="seat-map-container">
+        <!-- Aircraft Wrapper -->
+        <div class="aircraft-section">
+            <div class="cockpit"></div>
+            <div class="cabin" id="cabinContainer">
+                <!-- Seats will be rendered here by JS -->
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="seat-box available"></div> Available
+                </div>
+                <div class="legend-item">
+                    <div class="seat-box booked"></div> Booked
+                </div>
+                <div class="legend-item">
+                    <div class="seat-box reserved"></div> Held
+                </div>
+                <div class="legend-item">
+                    <div class="seat-box selected"></div> Selected
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side Panel -->
+        <aside class="selection-panel">
+            <h2>Your Selection</h2>
+            <div id="no-selection" class="panel-state active">
+                <p>Please select a seat from the map.</p>
+            </div>
+            <div id="seat-details" class="panel-state">
+                <div class="selected-seat-header">
+                    <span id="panel-seat-num">1A</span>
+                    <span id="panel-seat-class" class="class-badge">Business</span>
+                </div>
+
+                <div class="features-list" id="panel-features">
+                    <!-- Features here -->
+                </div>
+
+                <div class="pricing-breakdown">
+                    <div class="price-row">
+                        <span>Base Price:</span>
+                        <span id="panel-base-price">₹45,000</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Dynamic Demand Multiplier:</span>
+                        <span id="panel-multiplier">x 1.2</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Final Price:</span>
+                        <span id="panel-final-price" class="glow-price">₹54,000</span>
+                    </div>
+                </div>
+
+                <button class="confirm-btn">Confirm Seat</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Tooltip Element -->
+    <div id="seat-tooltip" class="tooltip hidden">
+        <div class="tt-header">
+            <strong id="tt-seat-num">12A</strong> <span id="tt-class">Economy</span>
+        </div>
+        <div class="tt-body">
+            <div id="tt-location">Window</div>
+            <div id="tt-features" class="tt-features">Extra Legroom</div>
+            <div id="tt-status" class="tt-status">Available</div>
+        </div>
+    </div>
+
+    <script src="seat-map.js"></script>
+</body>
+
+</html>
